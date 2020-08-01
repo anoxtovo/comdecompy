@@ -12,7 +12,7 @@ To Download and get getup comdecom, run the commands below:
 
 `git clone https://github.com/an0xt0v0/comdecompy`
 
-`cd comdecom`
+`cd comdecompy`
 
 `pip3 install -r requirements.txt`
 
@@ -24,7 +24,7 @@ To Download and get getup comdecom, run the commands below:
 
 `git clone https://github.com/an0xt0v0/comdecompy`
 
-`cd comdecom`
+`cd comdecompy`
 
 `pip3 install -r requirements.txt`
 
