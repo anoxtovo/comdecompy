@@ -8,17 +8,17 @@ USAGE
 
 To Download and get getup comdecom, run the commands below:
 
-    For Linux
+> For Linux
 
-        `git clone https://github.com/an0xt0v0/comdecom.git`
+`git clone https://github.com/an0xt0v0/comdecom.git`
 
-        `cd comdecom`
+`cd comdecom`
 
-        `pip3 install -r requirements.txt`
+`pip3 install -r requirements.txt`
 
-        `chmod +x comdecom.py`
+`chmod +x comdecom.py`
 
-        `python3 comdecom.py`
+`python3 comdecom.py`
 
 > For Windows
 
