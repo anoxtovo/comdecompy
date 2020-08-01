@@ -6,17 +6,19 @@ It's a cool python script for convert python source codes(*.py) to compiled pyth
 USAGE
 -----
 
-> For Linux
+To Download and get getup comdecom, run the commands below:
 
-`git clone https://github.com/an0xt0v0/comdecom.git`
+    For Linux
 
-`cd comdecom`
+        `git clone https://github.com/an0xt0v0/comdecom.git`
 
-`pip3 install -r requirements.txt`
+        `cd comdecom`
 
-`chmod +x comdecom.py`
+        `pip3 install -r requirements.txt`
 
-`python3 comdecom.py`
+        `chmod +x comdecom.py`
+
+        `python3 comdecom.py`
 
 > For Windows
 
