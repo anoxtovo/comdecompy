@@ -1,0 +1,2 @@
+colorama==0.4.3
+uncompyle6==3.7.2
