@@ -8,18 +8,14 @@
 # Hey, Everyone!, Someones looking at what is that shit!? Actualy  i'm thinking  about
 # building a cool python script for convert both python source codes(*.py) to compiled 
 # python code  files(*.pyc), and also convert  the any  compiled  python files to back 
-# python  source  file  format(*.py).  comdecom is a  interactive  python compiler and 
+# python  source  file format(*.py). comdecompy is a  interactive  python compiler and 
 # decompiler  script, comdecom  also included  python source code encoder to some base
 # encoding methods.
-# if someones want change/ edit/ add some other features to  this python script author 
-# will only allow for free  distribution & educational  purposes. This project dosen't
-# including any  lisense. editor  allowes to add  there own  lisense or any other open 
-# source  lisense. please make sure don't change this original informations about this
-# project.  
-# 
-# (c) 2020 Thumula Basura Suraweera(An0xt0v0) All rights reserved
-# web: https://anoxtovo.wordpress.com/pycomdecom
-# git: https://githubcom/an0xt0v0/pycomdecom
+#
+# Author: Thumula basura Suraweera
+# Copyright (c) 2020 Thumula Basura Suraweera(An0xt0v0)
+# web: https://anoxtovo.wordpress.com/comdecom-py
+# git: https://githubcom/an0xt0v0/comdecompy
 
 # importing modules
 import sys
