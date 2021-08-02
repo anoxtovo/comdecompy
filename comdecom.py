@@ -31,7 +31,7 @@ import uncompyle6
 # Forground colors
 init()
 
-colorRED = Fore.RED
+colorRed = Fore.RED
 colorBlue = Fore.BLUE
 colorGreen = Fore.GREEN
 colorBlack = Fore.BLACK
@@ -53,19 +53,19 @@ def clearScreen():
     else:
         os.system('clear')
 
-#function for define banner/logo area
+#banner
 def banner():
-    print("            "+colorGreen+"╔═══════════════════════════════════════════════════════════════╗"+colorReset+"")
-    print("            "+colorGreen+"║                                                               ║"+colorReset+"")
-    print("            "+colorGreen+"║   ███  ███  ██   ██ ████   ███  ███  ██   ██    ████  ██  ██  ║"+colorReset+"")
-    print("            "+colorGreen+"║  ██   ██ ██ ███ ███ ██  █ ██   ██ ██ ███ ███    ██  █  ████   ║"+colorReset+"")
-    print("            "+colorGreen+"║  ██   ██ ██ ██ █ ██ ██  █ ██   ██ ██ ██ █ ██    ████    ██    ║"+colorReset+"")
-    print("            "+colorGreen+"║   ███  ███  ██   ██ ████   ███  ███  ██   ██  █ ██      ██    ║"+colorReset+"")
-    print("            "+colorGreen+"║                                                 version_0.1   ║"+colorReset+"")
-    print("            "+colorGreen+"╚═══════════════════════════════════════════════════════════════╝"+colorReset+"")
-    print("             " + colorGreenBG + colorBlack + "          [  A     N     0     X     T     V    0  ]           "+ colorReset)
-    print("    "+ colorBlue + "[+]          Interactive Python Script Compiler & Decompiler Script          [+]"+ colorReset)
-    print("    "+colorBlue+"[+]                  https://github.com/an0xt0v0/comdecompy                  [+]"+colorReset)
+    print(f"""{colorGreen}\x09\x09╔═══════════════════════════════════════════════════════════════╗
+\x09\x09║                                                               ║
+\x09\x09║   ███  ███  ██   ██ ████   ███  ███  ██   ██    ████  ██  ██  ║
+\x09\x09║  ██   ██ ██ ███ ███ ██  █ ██   ██ ██ ███ ███    ██  █  ████   ║
+\x09\x09║  ██   ██ ██ ██ █ ██ ██  █ ██   ██ ██ ██ █ ██    ████    ██    ║
+\x09\x09║   ███  ███  ██   ██ ████   ███  ███  ██   ██  █ ██      ██    ║
+\x09\x09║                                                 version_0.2   ║
+\x09\x09╚═══════════════════════════════════════════════════════════════╝{colorReset}
+\x09\x09           {colorGreenBG}[  A     N     0     X     T     V    0  ]{colorReset}           
+\x09{colorRed}[+]          Interactive Python Script Compiler & Decompiler Script          [+]{colorReset}
+\x09{colorRed}[+]                  https://github.com/an0xt0v0/comdecompy                  [+]{colorReset}""")
 
 # defining & call to the  compiler functions.
 def compiler():
@@ -98,13 +98,13 @@ def compiler():
                     print(colorGreenBG + "[+] Results Moved to \n", askPathName + colorReset)
 
                 except:
-                    print(colorRED+"[!] Compiler Error!"+colorReset)
+                    print(colorRed+"[!] Compiler Error!"+colorReset)
             elif (askPathYN == "N" or askPathYN== "n"):
                 try:
                     py_compile.compile(userinput)
                     print(colorGreenBG + "[+] Compilation Completed...\n" + colorReset + colorBlue+"** Check out the __pycache__ directory\n"+ colorReset)
                 except:
-                    print(colorRED+"[!] Compiler Error!"+colorReset)
+                    print(colorRed+"[!] Compiler Error!"+colorReset)
             else:
                 print("[!] Something Went Wrong Here...\n[+] Back to Start...")
 
@@ -115,7 +115,7 @@ def compiler():
 # area-decompiler
 def decompile():
     while(KeyboardInterrupt, SystemExit()):
-        print(colorBlue+"** Input Compiled python file Name With Full Path\n** comdecom only supports for *.pyc format,"+ colorReset + colorRED + "\n** use 'exit' or 'back' commands to exit compiler"+colorReset)
+        print(colorBlue+"** Input Compiled python file Name With Full Path\n** comdecom only supports for *.pyc format,"+ colorReset + colorRed + "\n** use 'exit' or 'back' commands to exit compiler"+colorReset)
         userinput = input("decompiler> ")
         output = input("output> ")
 
@@ -138,7 +138,7 @@ def encoder():
     # importing requirement
 
     while(KeyboardInterrupt, SystemExit()):
-        print(colorRED+"** Under the Construnction...        :(\nuse 'back' or 'exit' commands to exit encorder..."+colorReset)
+        print(colorRed+"** Under the Construnction...        :(\nuse 'back' or 'exit' commands to exit encorder..."+colorReset)
         userinput = input("encoder> ")
 
         if(userinput == "exit" or userinput == "back"):
