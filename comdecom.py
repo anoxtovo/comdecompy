@@ -13,7 +13,8 @@
 # encoding methods.
 #
 # Author: Thumula basura Suraweera
-# Copyright (c) 2020 Thumula Basura Suraweera(An0xt0v0)
+# Version: 0.2 (2021) 
+# Copyright (c) 2020, 2021 Thumula Basura Suraweera(An0xt0v0)
 # web: https://anoxtovo.wordpress.com/comdecom-py
 # git: https://githubcom/an0xt0v0/comdecompy
 
@@ -26,11 +27,10 @@ from colorama import *
 import shutil
 import uncompyle6
 
-# define some ansii escape colors
-
-# Forground colors
+# Initiate colors
 init()
 
+# Forground colors
 colorRed = Fore.RED
 colorBlue = Fore.BLUE
 colorGreen = Fore.GREEN
@@ -45,7 +45,6 @@ colorGreenBG = Back.GREEN
 colorBlackBG = Back.LIGHTWHITE_EX
 colorReset = Fore.RESET + Back.RESET
 
-#function for check platform and clear screen
 def clearScreen():
     sys = platform.system()
     if sys == "Windows":
@@ -67,48 +66,50 @@ def banner():
 \x09{colorRed}[+]          Interactive Python Script Compiler & Decompiler Script          [+]{colorReset}
 \x09{colorRed}[+]                  https://github.com/an0xt0v0/comdecompy                  [+]{colorReset}""")
 
-# defining & call to the  compiler functions.
+# compiler
 def compiler():
-    # importing py_compile
+    # importings
     import py_compile
 
     while (KeyboardInterrupt,SystemExit()):
-        print(colorBlue+"**Input Source Name With Full Path,"+ colorReset + colorRED +"\n use 'exit' or 'back' commands to exit compiler"+colorReset)
-        userinput = input("compiler> ")
+        print(f"""{colorBlue}**Input Source Name With Full Path,{colorReset}{colorRed}
+use 'exit' or 'back' commands to exit compiler{colorReset}""")
+        
+        filepath = input("compiler> ")
 
-        if (os.path.isfile(userinput)):
-            print("[+] Reading Source...          "+colorGreen+"[DONE]"+colorReset+"\n[-] Source: ",userinput)
+        if (os.path.isfile(filepath)):
+            print(f"[+] Reading Source...          {colorGreen}[DONE]{colorReset}\x0A[-] Source: {filepath}")
             askPathYN = input("Whould You Want Store Binary File After Compilation in Specific Folder(Y/N)?")
             
             if (askPathYN == "Y" or askPathYN == 'y'):
-                print(colorBlue + "\n** Enter The Full Path of Specific Directory\n** If The Directory Don't Exist Comdecom Automaticaly Genarete The Specific Directory !\n"+colorReset)
-                askPathName = input(">> ")
+                print(f"\x0A{colorBlue}** Enter The Full Path of Specific Directory\n** If The Directory Don't Exist Comdecom Automaticaly Genarete The Specific Directory !{colorReset}\x0A")
+                askPathFull = input(">> ")
 
                 try:
-                    if(os.path.isdir(askPathName)):
-                        print(colorGreen+"[+] Directory Alredy Exists!"+colorReset)
+                    if(os.path.isdir(askPathFull)):
+                        print(f"{colorGreen}[+] Directory Alredy Exists!{colorReset}")
                     
                     else:
-                        os.mkdir(askPathName)
-                        print("[+] Genarating Directory...\n[+] Directory: ", askPathName + "\n---------- [ DONE! ] ----------")
+                        os.mkdir(askPathFull)
+                        print(f"[+] Genarating Directory...\n[+] Directory: {askPathFull} \x0A---------- [ DONE! ] ----------")
 
-                    py_compile.compile(userinput);
-                    print(colorGreenBG + "[+] Compilation Completed...\n" + colorReset + colorGreenBG+"[+] Moving Results to ", askPathName + colorReset)
-                    shutil.move("__pycache__", askPathName)
-                    print(colorGreenBG + "[+] Results Moved to \n", askPathName + colorReset)
+                    py_compile.compile(filepath);
+                    print(f"{colorGreenBG}[+] Compilation Completed...{colorReset}\x0A{colorGreenBG}[+] Moving Results to {askPathFull}{colorReset}")
+                    shutil.move("__pycache__", askPathFull)
+                    print(f"{colorGreenBG}[+] Results Moved to \x0A{askPathFull}{colorReset}")
 
                 except:
-                    print(colorRed+"[!] Compiler Error!"+colorReset)
+                    print(f"{colorRed}[!] Compiler Error!{colorReset}")
             elif (askPathYN == "N" or askPathYN== "n"):
                 try:
-                    py_compile.compile(userinput)
-                    print(colorGreenBG + "[+] Compilation Completed...\n" + colorReset + colorBlue+"** Check out the __pycache__ directory\n"+ colorReset)
+                    py_compile.compile(filepath)
+                    print(f"{colorGreenBG}[+] Compilation Completed...{colorReset}\x0A{colorBlue}** Check out the __pycache__ directory\n{colorReset}")
                 except:
-                    print(colorRed+"[!] Compiler Error!"+colorReset)
+                    print(f"{colorRed}[!] Compiler Error!{colorReset}")
             else:
                 print("[!] Something Went Wrong Here...\n[+] Back to Start...")
 
-        elif(userinput == "exit" or userinput == "back"):
+        elif(filepath == "exit" or filepath == "back"):
             print(colorRedBG+colorBlack+"[*] Exitting compiler..."+colorReset)
             return(main)
 
@@ -116,20 +117,20 @@ def compiler():
 def decompile():
     while(KeyboardInterrupt, SystemExit()):
         print(colorBlue+"** Input Compiled python file Name With Full Path\n** comdecom only supports for *.pyc format,"+ colorReset + colorRed + "\n** use 'exit' or 'back' commands to exit compiler"+colorReset)
-        userinput = input("decompiler> ")
+        filepath = input("decompiler> ")
         output = input("output> ")
 
-        if(os.path.isfile(userinput)):
-            print("[+] Reading Compiled File...          "+colorGreen+"[DONE]"+colorReset+"\n[-] File: ",userinput)
+        if(os.path.isfile(filepath)):
+            print("[+] Reading Compiled File...          "+colorGreen+"[DONE]"+colorReset+"\n[-] File: ",filepath)
             try:
-                os.system("uncompyle6 " + userinput + " -o " + output)
-                #uncompyle6.disas.disassemble_file(userinput, outstream=None, native=False)
+                os.system("uncompyle6 " + filepath + " -o " + output)
+                #uncompyle6.disas.disassemble_file(filepath, outstream=None, native=False)
                 print(colorGreenBG + "[+] Compilation Completed...\n" + colorReset)
             
             except:
                 print(colorRedBG + "[!] Decompilation error")
 
-        elif(userinput == "exit" or userinput == "back"):
+        elif(filepath == "exit" or filepath == "back"):
             print(colorRedBG+colorBlack+"[*] Exitting decompiler..."+colorReset)
             return(main)
 
@@ -139,9 +140,9 @@ def encoder():
 
     while(KeyboardInterrupt, SystemExit()):
         print(colorRed+"** Under the Construnction...        :(\nuse 'back' or 'exit' commands to exit encorder..."+colorReset)
-        userinput = input("encoder> ")
+        filepath = input("encoder> ")
 
-        if(userinput == "exit" or userinput == "back"):
+        if(filepath == "exit" or filepath == "back"):
             print(colorRedBG+colorBlack+"[*] Exitiing Encoder..."+colorReset)
             return(main)
 
