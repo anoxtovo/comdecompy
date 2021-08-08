@@ -110,7 +110,7 @@ use 'exit' or 'back' commands to exit compiler{colorReset}""")
                 print("[!] Something Went Wrong Here...\n[+] Back to Start...")
 
         elif(filepath == "exit" or filepath == "back"):
-            print(colorRedBG+colorBlack+"[*] Exitting compiler..."+colorReset)
+            print(f"{colorRedBG}{colorBlack}[*] Exitting compiler...{colorReset}")
             return(main)
 
 # area-decompiler
@@ -121,17 +121,17 @@ def decompile():
         output = input("output> ")
 
         if(os.path.isfile(filepath)):
-            print("[+] Reading Compiled File...          "+colorGreen+"[DONE]"+colorReset+"\n[-] File: ",filepath)
+            print(f"[+] Reading Compiled File...          {colorGreen}[DONE]{colorReset}\n[-] File: {filepath}")
             try:
                 os.system("uncompyle6 " + filepath + " -o " + output)
                 #uncompyle6.disas.disassemble_file(filepath, outstream=None, native=False)
-                print(colorGreenBG + "[+] Compilation Completed...\n" + colorReset)
+                print(f"{colorGreenBG}[+] Compilation Completed...\n{colorReset}")
             
             except:
-                print(colorRedBG + "[!] Decompilation error")
+                print(f"{colorRedBG}[!] Decompilation error...{colorReset}")
 
         elif(filepath == "exit" or filepath == "back"):
-            print(colorRedBG+colorBlack+"[*] Exitting decompiler..."+colorReset)
+            print(f"{colorRedBG}{colorBlack}[*] Exitting decompiler...{colorReset}")
             return(main)
 
 # area-encoder
@@ -139,11 +139,11 @@ def encoder():
     # importing requirement
 
     while(KeyboardInterrupt, SystemExit()):
-        print(colorRed+"** Under the Construnction...        :(\nuse 'back' or 'exit' commands to exit encorder..."+colorReset)
+        print(f"{colorRed}** Under the Construnction...        :(\nuse 'back' or 'exit' commands to exit encorder...{colorReset}")
         filepath = input("encoder> ")
 
         if(filepath == "exit" or filepath == "back"):
-            print(colorRedBG+colorBlack+"[*] Exitiing Encoder..."+colorReset)
+            print(f"{colorRedBG}{colorBlack}[*] Exitiing Encoder...{colorReset}")
             return(main)
 
 def main():
@@ -159,7 +159,7 @@ def main():
             exit()
         
         elif (usrinput == "help" or usrinput == "?"):
-            print(colorGreen+"""
+            print(f"""{colorGreen}
 Usage/Help:
 =======================================================
  Command               Usage/Info
@@ -171,8 +171,8 @@ Usage/Help:
  refresh               Refresh Screen/ Back to Start
  back                  Back
  exit                  Exit COMDECOM
-=======================================================
-"""+colorReset)
+======================================================={colorReset}
+""")
         elif (usrinput == "compile"):
             compiler()
         
